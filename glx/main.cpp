@@ -170,12 +170,12 @@ int main(int argc, char* argv[]) {
         GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE, &alpha_bits);
     printGlErrors();
     printf("alpha bits: %d\n", alpha_bits);
-    glGetFramebufferAttachmentParameterivEXT(
+    glGetFramebufferAttachmentParameteriv(
             GL_FRAMEBUFFER, GL_DEPTH,
             GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE, &depth_bits);
     printGlErrors();
     printf("depth bits: %d\n", depth_bits);
-    glGetFramebufferAttachmentParameterivEXT(
+    glGetFramebufferAttachmentParameteriv(
             GL_FRAMEBUFFER, GL_STENCIL,
             GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE, &stencil_bits);
     printGlErrors();
