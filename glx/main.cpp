@@ -156,9 +156,8 @@ int main(int argc, char* argv[]) {
     printf("Making context current\n");
     glXMakeCurrent(display, win, context);
     initGlew();
+    printf("Version: %s\n", glGetString(GL_VERSION));
 
-    printGlErrors();
-    //glBindBuffer(GL_FRAMEBUFFER, 0);
     GLint alpha_bits = 0;
     GLint depth_bits = 0;
     GLint stencil_bits = 0;
