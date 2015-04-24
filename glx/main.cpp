@@ -159,6 +159,32 @@ int main(int argc, char* argv[]) {
     glXMakeCurrent(display, win, context);
     initGlew();
 
+    printGlErrors();
+    //glBindBuffer(GL_FRAMEBUFFER, 0);
+    GLint alpha_bits = 0;
+    GLint depth_bits = 0;
+    GLint stencil_bits = 0;
+    printGlErrors();
+    if (glCheckFramebufferStatus(GL_FRAMEBUFFER) != GL_FRAMEBUFFER_COMPLETE)
+        fail("framebuffer not initialized properly");
+    printGlErrors();
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    glGetFramebufferAttachmentParameteriv(GL_FRAMEBUFFER, GL_BACK_LEFT,
+        GL_FRAMEBUFFER_ATTACHMENT_ALPHA_SIZE, &alpha_bits);
+    printGlErrors();
+    printf("alpha bits: %d\n", alpha_bits);
+    glGetFramebufferAttachmentParameterivEXT(
+            GL_FRAMEBUFFER, GL_DEPTH,
+            GL_FRAMEBUFFER_ATTACHMENT_DEPTH_SIZE, &depth_bits);
+    printGlErrors();
+    printf("depth bits: %d\n", depth_bits);
+    glGetFramebufferAttachmentParameterivEXT(
+            GL_FRAMEBUFFER, GL_STENCIL,
+            GL_FRAMEBUFFER_ATTACHMENT_STENCIL_SIZE, &stencil_bits);
+    printGlErrors();
+    printf("stencil bits: %d\n", stencil_bits);
+
+
     glClearColor(0, 0.5, 1, 1);
     glClear(GL_COLOR_BUFFER_BIT);
     glXSwapBuffers(display, win);
