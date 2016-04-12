@@ -1,5 +1,7 @@
 # Small GPU rendering examples
 
+**WARNING:** This repository has been moved to [01org/small-gpu-rendering-examples](https://github.com/01org/small-gpu-rendering-examples), you can find the latest version there.
+
 Pieces of C++ and OpenGL code for learning and experimenting. Some of the code
 was created with the help of the tutorial on https://open.gl.
 
